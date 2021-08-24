@@ -7,10 +7,7 @@ import useStyles from './styles';
 const Posts = ({setCurrentId}) => {
     const classes = useStyles();
     const user = JSON.parse(localStorage.getItem('profile'));
-    const unfilteredPosts = useSelector((state) => state.posts);
-    const posts = unfilteredPosts.filter((post) => 
-        (post?.userId !== user?.result?.googleId)
-    )
+    const posts = useSelector((state) => state.posts);
 
     return (
         !user?.result?.googleId ? <CircularProgress /> : (
