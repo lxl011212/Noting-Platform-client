@@ -8,9 +8,9 @@ const Posts = ({setCurrentId}) => {
     const unfilteredPosts = useSelector((state) => state.posts);
     const classes = useStyles();
     const user = JSON.parse(localStorage.getItem('profile'));
-    const posts = unfilteredPosts.filter((post) => {
-        user?.result?.googleId !== post?.userId;
-    })
+    const posts = unfilteredPosts.filter((post) => 
+        post?.userId !== user?.result?.googleId
+    )
 
     return (
         !user?.result?.googleId ? <CircularProgress /> : (
