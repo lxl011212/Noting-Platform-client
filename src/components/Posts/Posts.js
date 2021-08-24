@@ -5,14 +5,12 @@ import Post from './Post/Post';
 import useStyles from './styles';
 
 const Posts = ({setCurrentId}) => {
-    const [posts, setPosts] = useState([]);
     const classes = useStyles();
     const user = JSON.parse(localStorage.getItem('profile'));
     const unfilteredPosts = useSelector((state) => state.posts);
-    const tempPosts = unfilteredPosts.filter((post) => 
+    const posts = unfilteredPosts.filter((post) => 
         (post?.userId !== user?.result?.googleId)
     )
-    setPosts(tempPosts);
 
     return (
         !user?.result?.googleId ? <CircularProgress /> : (
