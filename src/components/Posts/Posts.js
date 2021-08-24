@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import Post from './Post/Post';
 import useStyles from './styles';
 
 const Posts = ({setCurrentId}) => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [posts, setPosts] = useState([]);
-    const unfilteredPosts = useSelector((state) => state.posts);
     const classes = useStyles();
-
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('profile')));
-        const tempPosts = unfilteredPosts.filter(post => 
-            post?.userId !== user?.result?.googleId
-        )
-        setPosts(tempPosts);
-    }, [user, unfilteredPosts]);
+    const user = JSON.parse(localStorage.getItem('profile'));
+    const unfilteredPosts = useSelector((state) => state.posts);
+    const tempPosts = unfilteredPosts.filter((post) => 
+        (post?.userId !== user?.result?.googleId)
+    )
+    setPosts(tempPosts);
 
     return (
         !user?.result?.googleId ? <CircularProgress /> : (
