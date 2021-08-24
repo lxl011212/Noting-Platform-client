@@ -11,11 +11,12 @@ const Posts = ({setCurrentId}) => {
     const classes = useStyles();
 
     useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem('profile')));
         const tempPosts = unfilteredPosts.filter(post => 
             post?.userId !== user?.result?.googleId
         )
         setPosts(tempPosts);
-    }, [user]);
+    }, [user, unfilteredPosts]);
 
     return (
         !user?.result?.googleId ? <CircularProgress /> : (
