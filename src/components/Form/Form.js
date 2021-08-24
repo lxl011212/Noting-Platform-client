@@ -10,7 +10,7 @@ const Form = ({currentId, setCurrentId}) => {
         title: '',
         message: '',
         selectedFile: '',
-        createdAt: Date,
+        createdAt: Date
     });
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -23,16 +23,16 @@ const Form = ({currentId, setCurrentId}) => {
     
     const clear = () => {
         setCurrentId(0);
-        setPostData({ title: '', message: '', selectedFile: '', createdAt: Date});
+        setPostData({ title: '', message: '', selectedFile: '', createdAt: Date });
     };
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (currentId === 0) {
-            dispatch(createPost({ ...postData, creator: user?.result?.name }));
+            dispatch(createPost({ ...postData, creator: user?.result?.name, userId: user?.result?.googleId }));
             clear();
         } else {
-            dispatch(updatePost(currentId, { ...postData, creator: user?.result?.name }));
+            dispatch(updatePost(currentId, { ...postData, creator: user?.result?.name, userId: user?.result?.googleId }));
             clear();
         }
     };
