@@ -15,7 +15,6 @@ const Post = ({ post, setCurrentId }) => {
 
     return (
         <>
-        {(user?.result?.googleId === post?.userId) && (
         <Card className={classes.card}>
             <CardMedia className={classes.media} title={post.title}/>
             <div className={classes.overlay}>
@@ -33,7 +32,6 @@ const Post = ({ post, setCurrentId }) => {
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
             </CardActions>
         </Card>
-        )}
         </>
     );    
 }
