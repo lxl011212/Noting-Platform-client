@@ -45,6 +45,7 @@ const SignUp = () => {
             <Button variant="contained" color="primary" href="https://github.com/lxl011212/Noting-Platform-client">
                 Frontend Source Code
             </Button>
+            <hr></hr>
             <Button variant="contained" color="primary" href="https://github.com/lxl011212/Noting-Platform-server">
                 Backend Source Code
             </Button>
