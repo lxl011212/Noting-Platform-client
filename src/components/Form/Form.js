@@ -10,7 +10,6 @@ const Form = ({currentId, setCurrentId}) => {
         message: '',
         createdAt: Date
     });
-    const [postClone, setPostClone] = useState({});
     const classes = useStyles();
     const dispatch = useDispatch();
     const post = useSelector((state) => (currentId ? state.posts.find((p) => p._id === currentId) : null));
@@ -19,10 +18,6 @@ const Form = ({currentId, setCurrentId}) => {
     useEffect(() => {
         if (post) setPostData(post);
     }, [post]);
-
-    useEffect(() => {
-        console.log("Post Updated")
-    }, [postClone]);
     
     const clear = () => {
         setCurrentId(0);
@@ -37,7 +32,6 @@ const Form = ({currentId, setCurrentId}) => {
         } else {
             dispatch(updatePost(currentId, { ...postData, creator: user?.result?.name, userId: user?.result?.googleId }));
             clear();
-            setPostClone({ ...postData, creator: user?.result?.name, userId: user?.result?.googleId });
         }
     };
 
