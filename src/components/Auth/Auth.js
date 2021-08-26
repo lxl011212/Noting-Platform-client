@@ -24,10 +24,6 @@ const SignUp = () => {
     };
     
     const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
-
-    const openInNewTab = (url) => {
-        window.open(url, '_blank');
-    };
     
     return (
     <Container component="main" maxWidth="xs">
@@ -46,11 +42,11 @@ const SignUp = () => {
         </Paper>
         <br></br>
         <Paper className={classes.paper} elevation={3}>
-            <Button variant="contained" color="primary" onClick={openInNewTab("https://github.com/lxl011212/Noting-Platform-client")} >
+            <Button variant="contained" color="primary" href="https://github.com/lxl011212/Noting-Platform-client" target="_blank" >
                 Frontend Source Code
             </Button>
             <hr></hr>
-            <Button variant="contained" color="primary" onClick={openInNewTab("https://github.com/lxl011212/Noting-Platform-server")} >
+            <Button variant="contained" color="primary" href="https://github.com/lxl011212/Noting-Platform-server" target="_blank" >
                 Backend Source Code
             </Button>
         </Paper>
