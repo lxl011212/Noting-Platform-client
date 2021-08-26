@@ -14,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getPosts());
+    window.location.reload();
   }, [currentId, dispatch]);
 
   return (
