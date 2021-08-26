@@ -4,7 +4,7 @@ import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
 
-const Form = ({ currentId, setCurrentId, setPostClone }) => {
+const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({
         title: '',
         message: '',
@@ -32,7 +32,7 @@ const Form = ({ currentId, setCurrentId, setPostClone }) => {
         } else {
             dispatch(updatePost(currentId, { ...postData, creator: user?.result?.name, userId: user?.result?.googleId }));
             clear();
-            setPostClone({ ...postData, creator: user?.result?.name, userId: user?.result?.googleId });
+            window.location.reload();
         }
     };
 

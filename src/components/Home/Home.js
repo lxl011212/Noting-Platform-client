@@ -9,17 +9,12 @@ import useStyles from './styles';
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
-  const [postClone, setPostClone] = useState({});
   const dispatch = useDispatch();
   const classes = useStyles();
 
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
-
-  useEffect(() => {
-    window.location.reload();
-  }, [postClone]);
 
   return (
     <Grow in>
@@ -29,7 +24,7 @@ const Home = () => {
             <Posts setCurrentId={setCurrentId} />
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} setPostClone={setPostClone} />
+            <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
         </Grid>
       </Container>
