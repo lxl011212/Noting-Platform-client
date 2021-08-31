@@ -11,7 +11,7 @@ const Posts = ({setCurrentId}) => {
     const posts = tempPosts.filter((post) => (user?.result?.googleId === post?.userId));
 
     return (
-        !user?.result?.googleId ? <CircularProgress /> : (
+        !user?.result?.googleId ? "" : (
             !posts.length ? <CircularProgress /> : (
                 <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                     {posts.map((post) => (
